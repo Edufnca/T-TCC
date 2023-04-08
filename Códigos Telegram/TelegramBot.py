@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from OpenWeather import *
 import requests
 
 load_dotenv()
@@ -40,8 +41,10 @@ class TelegramBot:
 
 #   Respostas do bot e chamada de funções
     def answer(self, message_txt, chat_id, update_id):
-        if message_txt in "oi": # Respostas
+        if message_txt in "oi":
             return "olaaa :D"
+        if message_txt in ["tempo"]: # Comandos para a função OpenWeather
+            return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
 
 #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
