@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from OpenWeather import *
+from Cotações import *
 import requests
 import json
 
@@ -42,10 +43,12 @@ class TelegramBot:
 
 #   Respostas do bot e chamada de funções
     def answer(self, message_txt, chat_id, update_id):
-        if message_txt in "oi":
+        if message_txt in "oi": #Comandos Cumprimentos
             return "olaaa :D"
-        if message_txt in ["tempo"]: # Comandos para a função OpenWeather
+        if message_txt in "tempo": # Comandos OpenWeather
             return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
+        if message_txt in "dolar": # Comandos Cotação
+            return f"A Cotação do {QDolar_name} esta em {'%.2f' % QDolar_bid}"
 
 #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
