@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from OpenWeather import *
 import requests
+import json
 
 load_dotenv()
 
