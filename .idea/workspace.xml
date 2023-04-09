@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Códigos Telegram/Cotações.py" afterDir="false" />
+    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="Json&#10;Biblioteca json aplicada.">
+      <change afterPath="$PROJECT_DIR$/Códigos Telegram/Banco_de_dados.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" afterDir="false" />
     </list>
@@ -21,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Cotações" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -28,6 +31,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2O7IZmiJDzcZ29cEXD3bBus2dfc" />
   <component name="ProjectViewState">
@@ -50,6 +56,29 @@
       <option name="presentableId" value="Default" />
       <updated>1680905251835</updated>
     </task>
+    <task id="LOCAL-00001" summary="Json&#10;Biblioteca json aplicada.">
+      <created>1681081914957</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681081914957</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Json&#10;Biblioteca json aplicada." />
+    <option name="LAST_COMMIT_MESSAGE" value="Json&#10;Biblioteca json aplicada." />
   </component>
 </project>

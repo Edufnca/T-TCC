@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from OpenWeather import *
 from Cotações import *
+from Banco_de_dados import *
 import requests
 import json
 
@@ -49,6 +50,77 @@ class TelegramBot:
             return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
         if message_txt in "dolar": # Comandos Cotação
             return f"A Cotação do {QDolar_name} esta em {'%.2f' % QDolar_bid}"
+        if message_txt in 'add prova':
+            prova = [] # Lista onde os itens serão salvos
+            self.send_answer(chat_id, "Digite o nome que vai dar a Prova:")
+            update = self.get_message(update_id)
+            message = update['result']
+            if message:
+                for message in message:
+                    message_txt = message['message']['text']
+                    while True:
+                        if message_txt in prova:
+                            break
+                        else:
+                            prova.append(message_txt)
+                            self.send_answer(chat_id, "Salvo!")
+
+            self.send_answer(chat_id, "Coloque a data da prova, exemplo 2023-04-04")
+            update = self.get_message(update_id)
+            message = update['result']
+            if message:
+                for message in message:
+                    message_txt = message['message']['text']
+                    while message_txt == prova[0] or message_txt is None:
+                        update = self.get_message(update_id)
+                        message = update['result']
+                        if message:
+                            for message in message:
+                                message_txt = message['message']['text']
+                        pass
+                    if message_txt != prova and message_txt is not None:
+                        char = '-/,'
+                        dateP = message_txt.translate(str.maketrans('', '', char))
+                        prova.append(message_txt)
+                        prova.append(dateP)
+                        self.send_answer(chat_id, "Salvo!")
+
+
+            self.send_answer(chat_id, "Coloque uma anotação para a prova")
+            update = self.get_message(update_id)
+            message = update['result']
+            if message:
+                for message in message:
+                    message_txt = message['message']['text']
+                    while message_txt in prova or message_txt is None:
+                        update = self.get_message(update_id)
+                        message = update['result']
+                        if message:
+                            for message in message:
+                                message_txt = message['message']['text']
+                if message_txt != prova and message_txt is not None:
+                    prova.append(message_txt)
+                    self.send_answer(chat_id, "Salvo!")
+
+            self.send_answer(chat_id, "Confirme as anotações")
+            self.send_answer(chat_id, f"{prova}")
+            self.send_answer(chat_id, "para Confirmar digite sim ou  nao para cancelar")
+            while message_txt != 'sim' or message_txt != 'nao':
+                update = self.get_message(update_id)
+                message = update['result']
+                if message:
+                    for message in message:
+                        message_txt = message['message']['text']
+            self.send_answer(chat_id, "Salvando...")
+            self.prova = prova
+            if message_txt == 'sim':
+                add_prova(f"{prova[0]}", f"{prova[2]}", f"{prova[3]}")
+                self.send_answer(chat_id, "A prova foi adcionada com sucesso :D")
+            else:
+                self.send_answer(chat_id, "Cancelado!")
+
+        if message_txt in 'ver provas':
+            read_prova()
 
 #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
