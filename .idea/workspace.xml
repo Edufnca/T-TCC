@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="Json&#10;Biblioteca json aplicada.">
-      <change afterPath="$PROJECT_DIR$/Códigos Telegram/Banco_de_dados.py" afterDir="false" />
+    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ChatGPT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" afterDir="false" />
     </list>

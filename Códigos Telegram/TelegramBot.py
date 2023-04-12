@@ -118,11 +118,10 @@ class TelegramBot:
                 self.send_answer(chat_id, "A prova foi adcionada com sucesso :D")
             else:
                 self.send_answer(chat_id, "Cancelado!")
-
         if message_txt in 'ver provas':
             read_prova()
 
-#   Requisição para mandar mensagem pela API
+    #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
         link_send = f'{self.url}sendMessage?chat_id={chat_id}&text={answer}'
         requests.get(link_send)
