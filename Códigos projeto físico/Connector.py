@@ -3,12 +3,6 @@ import sys
 from machine import Pin
 from time import sleep
 
-#definições iniciais
-
-#chat_id = ''
-#bot_token = ''
-#bot_name = ''
-
 def connect():
     wifi_name = " "
     password = " "
