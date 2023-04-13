@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="Json&#10;Biblioteca json aplicada.">
       <change afterPath="$PROJECT_DIR$/Códigos Telegram/Banco_de_dados.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ChatGPT" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
