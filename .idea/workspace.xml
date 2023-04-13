@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ChatGPT.py" afterDir="false" />
+    <list default="true" id="fbd74abe-5629-42ab-b464-b559b2ea37ab" name="Changes" comment="ChatGPT - Código desenvolvido em um modelo base alternativo, inadaptado ao modelo usado anteriormente.">
+      <change afterPath="$PROJECT_DIR$/Códigos Telegram/Keys.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatGPT.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Códigos Telegram/TelegramBot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681081914957</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ChatGPT - Código desenvolvido em um modelo base alternativo, inadaptado ao modelo usado anteriormente.">
+      <created>1681335672690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681335672690</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Json&#10;Biblioteca json aplicada." />
-    <option name="LAST_COMMIT_MESSAGE" value="Json&#10;Biblioteca json aplicada." />
+    <MESSAGE value="ChatGPT - Código desenvolvido em um modelo base alternativo, inadaptado ao modelo usado anteriormente." />
+    <option name="LAST_COMMIT_MESSAGE" value="ChatGPT - Código desenvolvido em um modelo base alternativo, inadaptado ao modelo usado anteriormente." />
   </component>
 </project>

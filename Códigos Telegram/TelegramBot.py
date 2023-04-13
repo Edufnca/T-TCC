@@ -2,11 +2,13 @@ from dotenv import load_dotenv
 from OpenWeather import *
 from Cotações import *
 from Banco_de_dados import *
+import openai
+from Keys import keys
 import requests
 import json
 
 load_dotenv()
-
+openai.api_key=keys.get('gpt')
 
 class TelegramBot:
     def __init__(self):
@@ -44,11 +46,11 @@ class TelegramBot:
 
 #   Respostas do bot e chamada de funções
     def answer(self, message_txt, chat_id, update_id):
-        if message_txt in "oi": #Comandos Cumprimentos
+        if message_txt in 'oi': #Comandos Cumprimentos
             return "olaaa :D"
-        if message_txt in "tempo": # Comandos OpenWeather
+        if message_txt in 'tempo': # Comandos OpenWeather
             return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
-        if message_txt in "dolar": # Comandos Cotação
+        if message_txt in 'dolar': # Comandos Cotação
             return f"A Cotação do {QDolar_name} esta em {'%.2f' % QDolar_bid}"
         if message_txt in 'add prova':
             prova = [] # Lista onde os itens serão salvos
@@ -120,6 +122,32 @@ class TelegramBot:
                 self.send_answer(chat_id, "Cancelado!")
         if message_txt in 'ver provas':
             read_prova()
+        if message_txt in 'chatgpt':
+            self.send_answer(chat_id, "Olaa, digite sua pesquisa no chat: ")
+            update = self.get_message(update_id)
+            message = update['result']
+            if message:
+                for message in message:
+                    message_txt = message['message']['text']
+                    while message_txt == message_txt and message_txt is None:
+                        update = self.get_message(update_id)
+                        message = update['result']
+                        if message:
+                            for message in message:
+                                message_txt = message['message']['text']
+                    question = message_txt
+                    response = openai.Completion.create(
+                        engine="text-davinci-003",
+                        prompt=question,
+                        temperature=0.7,
+                        top_p=0.7,
+                        max_tokens=200)
+                    answer = response['choices'][0]['text']
+                    print(answer)
+                    self.send_answer(chat_id, f"{answer}")
+
+        if message_txt is None: return ' '
+
 
     #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
