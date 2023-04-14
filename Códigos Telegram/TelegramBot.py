@@ -4,6 +4,8 @@ from Cotações import *
 from Banco_de_dados import *
 import openai
 from Keys import keys
+from Dicionario_de_comandos import *
+import random
 import requests
 import json
 
@@ -46,13 +48,14 @@ class TelegramBot:
 
 #   Respostas do bot e chamada de funções
     def answer(self, message_txt, chat_id, update_id):
-        if message_txt in 'oi': #Comandos Cumprimentos
-            return "olaaa :D"
-        if message_txt in 'tempo': # Comandos OpenWeather
+        if message_txt in Cumprimentos:  # Comandos Cumprimentos
+            BotC = random.randrange(0, len(BotCumprimentos))  # Cumprimento aleatório
+            return BotCumprimentos[BotC]
+        if message_txt in ComandTempo: # Comandos OpenWeather
             return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
-        if message_txt in 'dolar': # Comandos Cotação
+        if message_txt in ComandCota: # Comandos Cotação
             return f"A Cotação do {QDolar_name} esta em {'%.2f' % QDolar_bid}"
-        if message_txt in 'add prova':
+        if message_txt in ComandAProva:
             prova = [] # Lista onde os itens serão salvos
             self.send_answer(chat_id, "Digite o nome que vai dar a Prova:")
             update = self.get_message(update_id)
@@ -107,7 +110,7 @@ class TelegramBot:
             self.send_answer(chat_id, "Confirme as anotações")
             self.send_answer(chat_id, f"{prova}")
             self.send_answer(chat_id, "para Confirmar digite sim ou  nao para cancelar")
-            while message_txt != 'sim' or message_txt != 'nao':
+            while message_txt != sim or message_txt != nao:
                 update = self.get_message(update_id)
                 message = update['result']
                 if message:
@@ -115,12 +118,12 @@ class TelegramBot:
                         message_txt = message['message']['text']
             self.send_answer(chat_id, "Salvando...")
             self.prova = prova
-            if message_txt == 'sim':
+            if message_txt == sim:
                 add_prova(f"{prova[0]}", f"{prova[2]}", f"{prova[3]}")
                 self.send_answer(chat_id, "A prova foi adcionada com sucesso :D")
             else:
                 self.send_answer(chat_id, "Cancelado!")
-        if message_txt in 'ver provas':
+        if message_txt in ComandVProvas:
             read_prova()
         if message_txt in 'chatgpt':
             self.send_answer(chat_id, "Olaa, digite sua pesquisa no chat: ")
