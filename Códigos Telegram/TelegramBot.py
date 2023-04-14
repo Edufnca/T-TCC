@@ -8,7 +8,7 @@ import requests
 import json
 
 load_dotenv()
-openai.api_key=keys.get('gpt')
+openai.api_key = keys.get('gpt')
 
 class TelegramBot:
     def __init__(self):
@@ -130,11 +130,7 @@ class TelegramBot:
                 for message in message:
                     message_txt = message['message']['text']
                     while message_txt == message_txt and message_txt is None:
-                        update = self.get_message(update_id)
-                        message = update['result']
-                        if message:
-                            for message in message:
-                                message_txt = message['message']['text']
+                        pass
                     question = message_txt
                     response = openai.Completion.create(
                         engine="text-davinci-003",
@@ -143,11 +139,11 @@ class TelegramBot:
                         top_p=0.7,
                         max_tokens=200)
                     answer = response['choices'][0]['text']
-                    print(answer)
                     self.send_answer(chat_id, f"{answer}")
+                    print(answer)
+                    return ' '
 
-        if message_txt is None: return ' '
-
+        else: return ' '
 
     #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):

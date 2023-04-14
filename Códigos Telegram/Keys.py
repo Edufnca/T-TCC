@@ -1,4 +1,4 @@
 
 keys={
-'gpt': "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"
+'gpt': "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"
 }
