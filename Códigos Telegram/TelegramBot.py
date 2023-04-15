@@ -48,14 +48,14 @@ class TelegramBot:
 
 #   Respostas do bot e chamada de funções
     def answer(self, message_txt, chat_id, update_id):
-        if message_txt in Cumprimentos:  # Comandos Cumprimentos
+        if message_txt in Dicionario_Comandos['Cumprimentos Usuário']:  # Comandos Cumprimentos
             BotC = random.randrange(0, len(BotCumprimentos))  # Cumprimento aleatório
             return BotCumprimentos[BotC]
-        if message_txt in ComandTempo: # Comandos OpenWeather
+        if message_txt in Dicionario_Comandos['Comandos Clima']: # Comandos OpenWeather
             return f"""O tempo em {city} é de {TempC}ºC e {Tempo}"""
-        if message_txt in ComandCota: # Comandos Cotação
+        if message_txt in Dicionario_Comandos['Comandos Cotação']: # Comandos Cotação
             return f"A Cotação do {QDolar_name} esta em {'%.2f' % QDolar_bid}"
-        if message_txt in ComandAProva:
+        if message_txt in Dicionario_Comandos['Comandos Adicionar Prova']:
             prova = [] # Lista onde os itens serão salvos
             self.send_answer(chat_id, "Digite o nome que vai dar a Prova:")
             update = self.get_message(update_id)
@@ -123,9 +123,9 @@ class TelegramBot:
                 self.send_answer(chat_id, "A prova foi adcionada com sucesso :D")
             else:
                 self.send_answer(chat_id, "Cancelado!")
-        if message_txt in ComandVProvas:
+        if message_txt in Dicionario_Comandos['Comandos Ver as Provas']:
             read_prova()
-        if message_txt in 'chatgpt':
+        if message_txt in Dicionario_Comandos['Comandos ChatGPT']:
             self.send_answer(chat_id, "Olaa, digite sua pesquisa no chat: ")
             update = self.get_message(update_id)
             message = update['result']
