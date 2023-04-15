@@ -2,13 +2,15 @@ from dotenv import load_dotenv
 from OpenWeather import *
 from Cotações import *
 from Banco_de_dados import *
+import openai
+from Keys import keys
 from Dicionario_de_comandos import *
 import random
 import requests
 import json
 
 load_dotenv()
-
+openai.api_key = keys.get('gpt')
 
 class TelegramBot:
     def __init__(self):
@@ -121,11 +123,32 @@ class TelegramBot:
                 self.send_answer(chat_id, "A prova foi adcionada com sucesso :D")
             else:
                 self.send_answer(chat_id, "Cancelado!")
-
         if message_txt in ComandVProvas:
             read_prova()
+        if message_txt in 'chatgpt':
+            self.send_answer(chat_id, "Olaa, digite sua pesquisa no chat: ")
+            update = self.get_message(update_id)
+            message = update['result']
+            if message:
+                for message in message:
+                    message_txt = message['message']['text']
+                    while message_txt == message_txt and message_txt is None:
+                        pass
+                    question = message_txt
+                    response = openai.Completion.create(
+                        engine="text-davinci-003",
+                        prompt=question,
+                        temperature=0.7,
+                        top_p=0.7,
+                        max_tokens=200)
+                    answer = response['choices'][0]['text']
+                    self.send_answer(chat_id, f"{answer}")
+                    print(answer)
+                    return ' '
 
-#   Requisição para mandar mensagem pela API
+        else: return ' '
+
+    #   Requisição para mandar mensagem pela API
     def send_answer(self, chat_id, answer):
         link_send = f'{self.url}sendMessage?chat_id={chat_id}&text={answer}'
         requests.get(link_send)
