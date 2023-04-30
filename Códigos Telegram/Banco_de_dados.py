@@ -3,10 +3,10 @@ import mysql.connector
 #Código que realiza conexão ao banco de dados e suas respectivas funções
 
 conexao = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='bot_telebot',
+    host='hcontainers-us-west-13.railway.app',
+    user='uroot',
+    password='pFO9Nuz5NPu6gzSt2Wf1d',
+    port='7387',
 )
 cursor = conexao.cursor()
 
@@ -24,3 +24,4 @@ def read_prova():
     cursor.execute(comando)
     resultado = cursor.fetchall()
     return resultado
+
